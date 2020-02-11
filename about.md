@@ -12,6 +12,6 @@ I have a Bachelor degree in Computer Graphics and Visualizations from Masaryk Un
 
 ### Contact me
 
-[branislavjenco@gmail.com](mailto:branislavjenco@gmail.com)
+[Email](mailto:branislavjenco@gmail.com)
 [LinkedIn](https://www.linkedin.com/in/branislavjenco/)
 [GitHub](https://github.com/branislavjenco)
