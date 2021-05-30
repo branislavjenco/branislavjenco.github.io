@@ -10,6 +10,8 @@ I previously worked as a full-stack developer at [Nornir](https://nornir.io/) in
 
 I have a Bachelor degree in Computer Graphics and Visualizations from [Masaryk University](https://www.muni.cz/en) in Brno, Czech Republic. Currently I am also studying for a Masters degree at [IFI UiO](https://www.mn.uio.no/ifi/english/) in Oslo. I enjoy solving problems and learning about processing data, state reconciliation, control theory, declarative programming and other random topics.
 
+This site is where I write about things I've learned, things I find interesting and mistakes I've made.
+
 ### Contact me
 
 [Email](mailto:branislavjenco@gmail.com)
