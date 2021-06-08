@@ -1,6 +1,6 @@
 ---
 layout: post
-title: ChromeDriver 91 fixes behaviour when getting element attributes
+title: ChromeDriver fixes behaviour, breaks our test
 ---
 Our `selenium` ci tests started failing after a new version of Google's ChromeDriver came out. As can be seen in the [release notes](https://chromedriver.storage.googleapis.com/index.html?path=91.0.4472.19/), v91 fixes an issue with the attribute endpoint. ChromeDriver (and other web drivers conforming to the [W3C web driver spec](https://w3c.github.io/webdriver/) have a client-server where commands are sent to specific endpoints. A command to get an element attribute is executed by a client (for example the Selenium module) making a request to a url like `http://<web-driver-hostname:port>/session/<session-id>/element/<element-id>/attribute/<attribute-name>'`.
 
