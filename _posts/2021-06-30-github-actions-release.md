@@ -3,7 +3,7 @@ layout: post
 title: How to upload assets to an existing Release in Github Actions
 ---
 
-Summary: use `${{ github.event.release.upload_url }}` as the uplaod URL for Release assets when triggering a workflow on a published GitHub Release.
+Summary: use `github.event.release.upload_url` as the upload URL for Release assets when triggering a workflow on a published GitHub Release.
 
 We've been using travis-ci.org in a couple of repositories for some simple CI/CD workflows. [travis-ci.org](https://blog.travis-ci.com/2021-05-07-orgshutdown) shutdown on the 15th of June so we've needed to find a way to move these workflows over to a different service. I chose Github Actions because of its ease of use and integration in GitHub. It's capabilities seemed adequate for the simple workflows we needed. GitHub Actions are generally easy to setup if you follow the [documentation](https://docs.github.com/en/actions) but there was one part which I had more trouble figuring out. 
 
