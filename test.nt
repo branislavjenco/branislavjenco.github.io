@@ -13,5 +13,5 @@ _:bn3 <http://www.w3.org/2002/07/owl#sameAs> <http://psi.test.no/3> .
 _:bn3 <http://psi.test.no/child> _:bn4 .
 _:bn4 <http://psi.test.no/foo> "bazinga" .
 _:bn4 <http://sesam.io/people/john.doe> "foobar" .
-_:bn4 <http://sesam.io/people/male/brjohn.doe> "barbaz" .
+_:bn4 <http://sesam.io/people/male/john.doe> "barbaz" .
 _:bn4 <http://sesam.io/people/male/jane.doe> "leet" .
