@@ -14,4 +14,4 @@ _:bn3 <http://psi.test.no/child> _:bn4 .
 _:bn4 <http://psi.test.no/foo> "bazinga" .
 _:bn4 <http://sesam.io/people/john.doe> "foobar" .
 _:bn4 <http://sesam.io/people/male/john.doe> "barbaz" .
-_:bn4 <http://sesam.io/people/male/jane.doe> "leet" .
+_:bn4 <http://sesam.io/people/female/jane.doe> "leet" .
