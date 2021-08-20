@@ -15,3 +15,4 @@ _:bn4 <http://psi.test.no/foo> "bazinga" .
 _:bn4 <http://sesam.io/people/john.doe> "foobar" .
 _:bn4 <http://sesam.io/people/male/john.doe> "barbaz" .
 _:bn4 <http://sesam.io/people/female/jane.doe> "leet" .
+_:bn4 <ftp://sesam.io/people/male/john.doe> <ftp://sesam.io/tools/pycharm> .
