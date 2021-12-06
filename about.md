@@ -4,7 +4,7 @@ title: Hi
 permalink: /about/
 ---
 
-I'm a software developer at [Sesam](https://sesam.io/), an data integration company based in Oslo where I'm dividing my time between backend (Python/C++) and frontend (React/Redux).
+I'm a software developer at [Sesam](https://sesam.io/), a data integration company based in Oslo where I'm dividing my time between backend (Python/C++) and frontend (React/Redux).
 
 I previously worked as a full-stack developer at [Nornir](https://nornir.io/) in Oslo. Before that, I took a summer internship at [CERN](https://home.cern/), where I built a small web application for displaying data about beamlines operating in CERNs North & East Experimental Areas.
 

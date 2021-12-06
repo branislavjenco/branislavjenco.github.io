@@ -6,7 +6,7 @@
 name: Branislav Jenco
 
 # Short bio or description (displayed in the header)
-description: Software developer. I enjoy learning and solving problems. 
+description: I like solving problems, learning new things and helping others do the same. 
 
 # URL of your avatar or profile pic (you could use your GitHub profile pic)
 avatar: https://raw.githubusercontent.com/branislavjenco/branislavjenco.github.io/master/image.png 
@@ -86,3 +86,4 @@ exclude:
   - CNAME
 
 theme: jekyll-theme-minimal
+
