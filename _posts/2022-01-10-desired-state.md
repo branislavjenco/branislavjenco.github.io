@@ -37,6 +37,10 @@ Consider an ordinary elevator.
 
 You come up to it and see the buttons with arrows pointing up and down. I don’t know about you, but growing up, my brain always interpreted the up and down arrows as “I want the elevator to go up” and “I want the elevator to go down”, instead of “I want to go up” and “I want to go down”. In other words I wanted to directly control it. To this day it sometimes takes a tiny bit of my mental capacity to remember this rule.
 
+<p align="center">
+   <img src="/images/desired_state/elevator0.png" width="100%" alt="An ordinary elevator" />
+</p>
+
 To a person coming to the elevator, what do the buttons represent? They’re the elevator’s *interface*. A device that allows the user to communicate with the system. We can think of a user as just another system, and arrive at a generalized definition of an interface as any point where two systems interact. Now, my possible confusion could stem from the fact that an arrow pointing somewhere can both mean “I want to go there” and “I want this thing to go there”. There’s probably not many people who share this confusion. Let’s ignore the question of interpreting the user interface and compare the two approaches as if they were both entirely valid.
 
 What could we call these two approaches?
@@ -145,7 +149,7 @@ In order to save typing and bring the syntax more in line with actual HTML, many
 
 React wraps around the browser document object model, or DOM, which is a deeply imperative API present in all web browsers. This API lets us programmatically alter the contents of the page. It represents the HTML page as a tree of nodes with attributes, properties, event handlers and offers methods for querying, creating new elements, appending new children in the tree and so on. React's component tree has a similar structure.
 
-### React as desired state
+### React as a desired state system
 
 Let's look at React through the lens of desired state. When the page loads, some initial desired state in the form of a component tree is given to React. Internally, React keeps a representation of this tree in memory and whenever the desired state changes -- based on the user input or other triggers -- it compares the old state to the new state. This internal representation used to be called the virtual DOM, though that name isn't used much anymore.
 
@@ -166,6 +170,10 @@ Now I want to get to the point that React is a simplified desired state system a
 ### Control theory: closed vs open loop
 
 We say that a closed loop system is one that is interconnected in a cycle. If System 1 gives signals to System 2, the outputs of System 2 are in some way a part of the input to System 1. This is called *feedback*. A key feature of feedback is that it provides robustness to uncertainty. Closed-loop systems automatically achieve and maintain the desired output condition by comparing it with the actual condition.
+
+<p align="center">
+   <img src="/images/desired_state/open_close_loop.png" width="100%" alt="Open loop system vs closed loop system" />
+</p>
 
 While feedback has many advantages, it also brings a set of drawbacks. If not designed properly, the system can exhibit instability. This could be in the form of positive feedback, like when a microphone’s amplifier is turned up too high in a room. Furthermore, feedback inherently couples different parts of the system. [3]
 
@@ -197,7 +205,7 @@ When you first run Terraform, it creates a file called *tfstate* which stores th
 
 Every time you want to make changes to it, it will go and obtain the current state of your actual resources and report the changes your new plan will make. You can then check if your changes are correct and apply them.
 
-### Terraform as desired state
+### Terraform as a desired state system
 
 In the resulting diff you can then see what changes your new plan would make, but also whether your actual state has drifted from your saved tfstate. In other words, unlike React, Terraform is a closed loop system. Ultimately, this is because it's optimizing for solving a different problem - while React needs to have fast updates and can assume that no one else touches its domain, Terraform can spend much more time (and does) figuring out the difference to the actual state. It crucially cannot assume resources it manages are left untouched. 
 
@@ -239,6 +247,10 @@ Another interesting concept from control theory which comes up in a system with 
 
 Hysteresis characterizes a system whose behaviour does not only depend on its input at time t, but also on the history of this input. You can also think of it as adding artificial lag to the system. A widely used example of this is a thermostat. Let’s say we set the thermostat to a temperature of 20 degrees. Without hysteresis, as soon as the temperature hits this desired state, the heating turns off. But that means that very quickly, the temperature goes back down under 20 degrees, turning the heating back on. The thermostat system starts oscillating and quickly turning the heating on and off. When we add hysteresis, the thermostat waits until the temperature is above, say 22 degrees before turning the heating off. Likewise, the thermostat will wait until the temperature hits less than, say 18 degrees before turning the heating back on. This ensures smoother and more reliable operation of the system. [3]
 
+<p align="center">
+   <img src="/images/desired_state/hysteresis.png" width="100%" alt="Hysteresis" />
+</p>
+
 ### Kubernetes controllers
 
 In Kubernetes, this concept comes into play when it has to decide whether to move some workloads off of a Node whose computational resources are dwindling, so called pod eviction. A soft grace period can be specified, which means the Kubernetes will wait for a while before scheduling the pod away from the Node, as the resource constraints might be a temporary situation. This ensures more predictable and smoother operation of the scheduling. 
@@ -252,7 +264,7 @@ Kubernetes is actually made up of many of controllers, working together to bring
 These controllers are actually often nested -- a particular control loop (controller) uses one kind of resource as its desired state, and has a different kind of resource that it manages to make that desired state happen.
 
 <p align="center">
-   <img src="/images/desired_state/kubetnetes_nested.png" width="100%" alt="Outputs of controllers can serve as inputs to other controllers" />
+   <img src="/images/desired_state/kubernetes_nested.png" width="100%" alt="Outputs of controllers can serve as inputs to other controllers" />
 </p>
 
 Allow me one more digression into basics of control theory, this one comes from circuit design and CPU interrupts.
@@ -262,6 +274,10 @@ Allow me one more digression into basics of control theory, this one comes from 
 When one system needs to give another some information over the wire, there are two options. The first one is called edge-triggered logic -- system 1 pulses the line with a brief high voltage spike. The problem with this approach is that system 2 might miss the signal if it's not listening at the time. 
 
 The second option is what we call level-triggered logic. In this case, system 1 brings the voltage up and keeps it there until it's sure it's been registered by system 2. This approach is more robust, as system 2 can check the state of the wire at any time. [4]
+
+<p align="center">
+   <img src="/images/desired_state/edge_level_triggered.png" width="100%" alt="Edge vs level triggered logic" />
+</p>
 
 You can maybe see some parallels between this and event driven communication versus polling for changes.
 
@@ -332,7 +348,7 @@ But thanks to abstractions, sometimes, and in limited scope, we can pretend that
 
 Sources:
 
-1. https://mitpress.mit.edu/books/concepts-techniques-and-models-computer-programming
-2. https://www.joelonsoftware.com/2002/11/11/the-law-of-leaky-abstractions
-3. https://fbswiki.org/wiki/index.php/Feedback_Systems:_An_Introduction_for_Scientists_and_Engineers
-4. https://speakerdeck.com/thockin/edge-vs-level-triggered-logic
+1. [https://mitpress.mit.edu/books/concepts-techniques-and-models-computer-programming](https://mitpress.mit.edu/books/concepts-techniques-and-models-computer-programming)
+2. [https://www.joelonsoftware.com/2002/11/11/the-law-of-leaky-abstractions](https://www.joelonsoftware.com/2002/11/11/the-law-of-leaky-abstractions)
+3. [https://fbswiki.org/wiki/index.php/Feedback_Systems:_An_Introduction_for_Scientists_and_Engineers](https://fbswiki.org/wiki/index.php/Feedback_Systems:_An_Introduction_for_Scientists_and_Engineers)
+4. [https://speakerdeck.com/thockin/edge-vs-level-triggered-logic](https://speakerdeck.com/thockin/edge-vs-level-triggered-logic)
