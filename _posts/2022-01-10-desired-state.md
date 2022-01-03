@@ -89,7 +89,7 @@ The point is that by taking away imperative control, and adding domain specific 
 
 Note that the elevator is doing the same thing. Going up or down, stopping at this or that floor. So something inside has to have direct imperative control of the elevator, otherwise it wouldn’t matter that we want to go somewhere, it wouldn’t move. A way I like to think about this is that the declarative interface wraps around the imperative interface.
 
-<p align="center"">
+<p align="center">
    <img src="/images/desired_state/elevator.png" width="100%" alt="Elevator as a declarative interface wrapping over an imperative interface" />
 </p>
 
