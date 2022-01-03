@@ -95,13 +95,25 @@ Note that the elevator is doing the same thing. Going up or down, stopping at th
 
 This wrapping is just another word for abstraction. It is this type of abstraction that I see everywhere around me. We could call this abstraction desired state. We give the system our desired state – we want the elevator on our floor – and let the system take care of the process of bringing the actual state of the elevator in line with our desired state. In order to do so, it must be able to query the underlying system to obtain the current state, compare or *diff* it to the desired state, and issue commands to it which update the actual state accordingly. In order to differentiate between the various words, let's use the verb *apply* for the act of giving the desired state to our system.
 
+<p align="center">
+   <img src="/images/desired_state/elevator2.png" width="100%" alt="Elevator as a desired state system" />
+</p>
+
 Let's generalize these principles. 
 
 ## Desired state system
 
 A desired state system wraps an underlying API or system which has an imperative, mutable interface and allows its user to specify a desired state for this underlying system. The wrapper is then responsible for figuring out the actual state of the underlying system, compare it to the desired state given to it by the user, and apply the necessary changes to bring the actual state in line with the desired state. 
 
+<p align="center">
+   <img src="/images/desired_state/desired_state.png" width="100%" alt="Components of a desired state system" />
+</p>
+
 The part in the middle, where it goes through this loop of observing the underlying system, comparing its actual state to the desired state and acting on it accordingly is called reconciliation.
+
+<p align="center">
+   <img src="/images/desired_state/reconciliation.png" width="100%" alt="The reconciliation loop" />
+</p>
 
 As I mentioned in the example, we can think of this abstraction in several different ways.
 
@@ -137,6 +149,10 @@ React wraps around the browser document object model, or DOM, which is a deeply 
 
 Let's look at React through the lens of desired state. When the page loads, some initial desired state in the form of a component tree is given to React. Internally, React keeps a representation of this tree in memory and whenever the desired state changes -- based on the user input or other triggers -- it compares the old state to the new state. This internal representation used to be called the virtual DOM, though that name isn't used much anymore.
 
+<p align="center">
+   <img src="/images/desired_state/react_desired_state.png" width="100%" alt="React as a desired state system" />
+</p>
+
 The comparison of states generates a sequence of operations that need to be performed on the actual DOM. Generic algorithms for generating the minimum number of operations needed to transform one tree into another have complexity in the order of O(n^3) where n is the number of elements in the tree. However, React has to do this really fast, and so it uses a series of heuristics to compute the least number of operations necessary. 
 
 This brings the time complexity down to O(n). These heuristics rely heavily on two assumptions -- First, two elements of different types will produce different trees and second, the developer can hint at which child elements might not change across different renders with a specific property called a key. This is needed for lists and other places where order is important. React also relies the fact that the properties passed down to the children are immutable -- it assumes that when an object’s contents change, so does the reference to this object. React can then do simple reference comparisons without doing deep diffing and re-render components when their properties change. This keeps the UI responsive.
@@ -158,6 +174,10 @@ On the other hand, in an open loop system, this interconnection is severed.
 ### React is an open loop system
 
 While React is a desired state system within our model, it's actually an open loop system. React does not keep rechecking the current state of the Browser DOM to see if it's in the correct shape. 
+
+<p align="center">
+   <img src="/images/desired_state/react_open_loop.png" width="100%" alt="React is an open loop system" />
+</p>
 
 For one, that would probably be prohibitively slow. It also just doesn't need to. Unlike many other desired-state systems, React operates with the assumption that it is the *only thing touching its domain*. It generally assumes that there is no other library or person modifying the page under its feet. You can test this yourself using developer tools in your browser. If you modify an HTML element controlled by React, the library will not try to overwrite your modification unless a parent of the changed element gets rerendered and the whole subtree replaced.
 
@@ -181,6 +201,10 @@ Every time you want to make changes to it, it will go and obtain the current sta
 
 In the resulting diff you can then see what changes your new plan would make, but also whether your actual state has drifted from your saved tfstate. In other words, unlike React, Terraform is a closed loop system. Ultimately, this is because it's optimizing for solving a different problem - while React needs to have fast updates and can assume that no one else touches its domain, Terraform can spend much more time (and does) figuring out the difference to the actual state. It crucially cannot assume resources it manages are left untouched. 
 
+<p align="center">
+   <img src="/images/desired_state/terraform_desired_state.png" width="100%" alt="Terraform as a desired state system" />
+</p>
+
 Much like you can extend React with different hosts, Terraform has a collection of plugins called providers that you can use. A provider is responsible for understanding the API interactions with some kind of service and exposing resources based on that API. And of course you can create your own. Unlike React, Terraform has an added complication of how to define what a resource is and what is its configuration. The configuration can be specified as its own resource or just be a part of the parent resource. This can vary between providers and many resource types support both. One of the harder parts of Terraform is managing this coupling.
 
 Compared to some configuration management tools like Chef or SaltStack, Terraform works on the principle of immutable deployments. When you change your plan, your resources get recreated with the correct state applied. This means that operations can be inherently destructive. Making a configuration change on a VM could mean destroying the original VM and provisioning a new one. Which operations are destructive and which are not are defined by each provider. On the other hand, with mutable deployments you are much more likely to get into a situation where the actual state starts to drift from the desired state. In other words, changes to the Terraform state are idempotent -- if you keep reapplying the same state which creates 10 VMs, you always just end up with 10 VMs. This is a crucial property of a desired state system.
@@ -199,9 +223,13 @@ The cluster can be controlled by a command line tool called *kubectl* which serv
 
 While it also offers a sort-of imperative-like API, the core of its use is done using `yaml` configuration files which are then applied as a desired state to the cluster.
 
-### Kubernetes as desired state
+### Kubernetes as a desired state system
 
 We can then look at Kubernetes through the lens of our model. Similarly to Terraform, you give the system the desired state of a particular resource in the cluster, this time in the form of a yaml file.
+
+<p align="center">
+   <img src="/images/desired_state/kubernetes_desired_state.png" width="100%" alt="Kubernetes as a desired state system" />
+</p>
 
 A component called a *controller* inside Kubernetes then has the responsibility to bring the actual state of the given resource in line with the desired state. Unlike Terraform, this happens continuously. If you try to delete one of the pod replicas in a deployment with 3 desired replicas, Kubernetes will immediately spin up a new one. Likewise, if a pod keeps crashing, it's going to keep trying to run, as it tries to keep the actual state in line with the desired state. Kubernetes is a closed-loop system.
 
@@ -217,7 +245,15 @@ In Kubernetes, this concept comes into play when it has to decide whether to mov
 
 Kubernetes is actually made up of many of controllers, working together to bring the actual state close to the desired one. Each controller can act upon one or more resource types.
 
+<p align="center">
+   <img src="/images/desired_state/kubernetes_multiple.png" width="100%" alt="Many controllers work together to bring the actual state in line with the desired state" />
+</p>
+
 These controllers are actually often nested -- a particular control loop (controller) uses one kind of resource as its desired state, and has a different kind of resource that it manages to make that desired state happen.
+
+<p align="center">
+   <img src="/images/desired_state/kubetnetes_nested.png" width="100%" alt="Outputs of controllers can serve as inputs to other controllers" />
+</p>
 
 Allow me one more digression into basics of control theory, this one comes from circuit design and CPU interrupts.
 
