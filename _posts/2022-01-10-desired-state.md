@@ -89,7 +89,9 @@ The point is that by taking away imperative control, and adding domain specific 
 
 Note that the elevator is doing the same thing. Going up or down, stopping at this or that floor. So something inside has to have direct imperative control of the elevator, otherwise it wouldn’t matter that we want to go somewhere, it wouldn’t move. A way I like to think about this is that the declarative interface wraps around the imperative interface.
 
-![Elevator as a declarative interface wrapping over an imperative interface](/images/desired_state/elevator.png)
+<p align="center"">
+   <img src="/images/desired_state/elevator.png" width="100%" alt="Elevator as a declarative interface wrapping over an imperative interface" />
+</p>
 
 This wrapping is just another word for abstraction. It is this type of abstraction that I see everywhere around me. We could call this abstraction desired state. We give the system our desired state – we want the elevator on our floor – and let the system take care of the process of bringing the actual state of the elevator in line with our desired state. In order to do so, it must be able to query the underlying system to obtain the current state, compare or *diff* it to the desired state, and issue commands to it which update the actual state accordingly. In order to differentiate between the various words, let's use the verb *apply* for the act of giving the desired state to our system.
 
