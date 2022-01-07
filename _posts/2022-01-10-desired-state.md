@@ -5,31 +5,29 @@ title: Desired state systems
 
 (Note: this material was presented at [NDC Oslo 2021](https://ndcoslo.com/agenda/desired-state-how-react-kubernetes-and-control-theory-have-lots-in-common-0ded/0llw0hsd6pk))
 
-In this post I simply want to share with you a certain type of abstraction that I've encountered over the last couple of years working across the stack. It’s a model that comes up again and again in various areas of computing, from UI engineering to infrastructure management, databases, programming language theory and elsewhere. 
+In this post I want to share with you a certain type of abstraction that I've encountered over the last couple of years working across the stack. It’s a model that comes up again and again in various areas of computing, from UI engineering to infrastructure management, databases, programming language theory etc. 
 
-For lack of a better term, we could call that abstraction *desired state*, but that name only describes a part of it. I'll go through some of the ways that we can look at this abstraction and show some examples of where it's used. My hope is that by the end of this talk you'll be able to not only spot this abstraction in the tools and APIs you encounter, but also be able to assess whether it's worth using in the projects and products you work on.
+For lack of a better term, we could call that abstraction *desired state*, but that name only describes a part of it. I'll go through some of the ways that we can look at this abstraction and show some examples of where it's used. My hope is that by the end you'll be able to not only spot this abstraction in the tools and APIs you encounter, but also be able to assess whether it's worth using in your projects.
 
 ## Outline
 
-This post has eight parts. I will start with some general motivation and go through a simple example of how we can look at systems even outside of our domain with this abstraction in mind. This will give us some general principles that underlie this model. Then I'll present several different angles from which we can look at this abstraction, with examples from well-known tools like React, Kubernetes, and Terraform. At the end I'll mention the things you should think about when applying this abstraction yourself.
+I will start with some general motivation and go through a simple example of how we can look at systems even outside of our domain with this abstraction in mind. This will give us some general principles that underlie this model. Then I'll present several different angles from which we can look at this abstraction, with examples from well-known tools like React, Kubernetes, and Terraform. At the end I'll mention the things you should think about when applying this abstraction yourself.
 
 ### Mental models
 
-It is said that all models are wrong, but some are useful. We as developers constantly deal with models, most intimately in the case of our internal, mental models of how things work. It can be useful to look at different fields, industries or areas within and try to spot connections between concepts across them and find common models. Sometimes you find seemingly unrelated things that rhyme with each other. 
+[All models are wrong, but some are useful](https://en.wikipedia.org/wiki/All_models_are_wrong). Working with software, we constantly deal with models, most intimately in the case of our internal, mental models of how things work and it can be useful to look at different fields, industries or areas within and try to spot connections between concepts across them and find common models. Sometimes you find seemingly unrelated things that rhyme with each other. 
 
-Your models will never be perfect, but that’s not the point. They help a lot with learning, as new things can be quickly mapped to your existing mental models. Kind of like when learning languages – the more languages you know, the easier it gets. Whether that’s human languages or programming languages. The syntax changes, but the underlying model doesn’t. It allows one to think more clearly about things especially when the brain fog sets in in a long Teams meeting.
+Your models will never be perfect, but that’s not the point. When learning new things, these can be more easily mapped to your existing mental models. Kind of like when learning languages – the more languages you know, the easier it gets (whether that’s human languages or programming languages). The syntax changes, but the underlying models often doesn’t. It allows one to think more clearly about things especially when the brain fog sets in in a long Teams meeting.
 
 ### Abstraction or interface?
 
-The desired state model I want to describe can be found in common tools and libraries within frontend web development, backend development, databases, infrastructure, GUIs and others. It's a model of an abstraction, but it's closely tied to the notion of an interface, as the abstraction fundamentally changes how we as developers, or our users, or other systems, interact with a system.
+The desired state systems I want to describe can be found in common tools and libraries within frontend web development, backend development, databases, infrastructure, GUIs and others. It's a model of an abstraction, but it's closely tied to the notion of an interface, as the abstraction fundamentally changes how we as developers, or our users, or other systems, interact with a system.
 
-What is even an abstraction? 
+What is even an abstraction? The authors of the wonderful book *Concepts, Techniques, and Models of Computer Programming* define it as *any tool or device that solves a particular problem* [1].
 
-The authors of the wonderful book *Concepts, Techniques, and Models of Computer Programming* define it as *any tool or device that solves a particular problem* [1].
+That's a very general and correct definition but I especially like the take of Joel Spolsky, who simply states that *abstractions are pretending*. He says: "What is a string library? It’s a way to pretend that computers can manipulate strings just as easily as they can manipulate numbers. What is a file system? It’s a way to pretend that a hard drive isn’t really a bunch of spinning magnetic platters that can store bits at certain locations, but rather a hierarchical system of folders-within-folders containing individual files that in turn consist of one or more strings of bytes".[2]
 
-That's a very general and correct definition but I especially like the take of Joel Spolsky who simply states that *abstractions are pretending*. He says: "What is a string library? It’s a way to pretend that computers can manipulate strings just as easily as they can manipulate numbers. What is a file system? It’s a way to pretend that a hard drive isn’t really a bunch of spinning magnetic platters that can store bits at certain locations, but rather a hierarchical system of folders-within-folders containing individual files that in turn consist of one or more strings of bytes".[2]
-
-Abstractions are central to what we do. I find that the most difficult work for me, but also the most rewarding, is not writing programs but rather designing abstractions. Programming a computer is primarily designing and using abstractions to achieve new goals. It's exciting when you can build something which hides away some of the underlying complexity and present a simpler interface for whoever or whatever is using your system. 
+Abstractions are central to what we do. I find that the most rewarding work is not writing programs but rather designing abstractions. Programming a computer is primarily designing and using abstractions to achieve new goals. It's exciting when you can build something which hides away some of the underlying complexity and present a simpler interface for whoever or whatever is using your system. 
 
 This was all rather abstract, so let's get to an example from everyday life.
 
@@ -291,9 +289,9 @@ Let’s look at one more way of how we can describe the desired-state model.
 
 ## Value vs reference semantics
 
-We can think of it as wrapping *reference* semantics with *value* semantics. What do I mean by that. When we treat objects as values, we assume they cannot be changed. We assume that they are immutable. By object in this case I mean generally a _thing_ we work with, some piece of data. When programming, we don’t have to worry about the difference between the integer 5 and the integer 4, to which we added the integer 1 later. Five equals five either way. It is the contents of the object which provide the object identity, and not our reference to it.
+We can think of it as wrapping *reference* semantics with *value* semantics. When we treat objects as values, we assume they cannot be changed, that they are immutable (_object_ in this case meaning generally a _thing_ we work with, some piece of data). When programming, we don’t have to worry about the difference between the integer 5, and the integer 4 to which we added the integer 1 later. Five equals five either way. In other words, it is the content of the object which provide the object identity, and not our reference to it.
 
-A desired state is just a collection of values which we want to exist in the world. Instead of keeping track of the reference to some browser DOM objects in React, or containers in Kubernetes, or Virtual Machines in Terraform, we can simply treat them as values. Values can't be changed, if we need another one, we simply create a new one. The underlying system takes care of all the mutable logic underneath. In some way, immutable strings in your favourite programming language can be just thought of as a desired state system, where the compiler or interpreter makes sure to reconcile the value semantics with the underlying memory references in a performant way. Doing this for complex objects is not easy at all, and often not possible. 
+A desired state is just a collection of values which we want to exist in the world. Instead of keeping track of references to browser DOM nodes in React, or containers in Kubernetes, or Virtual Machines in Terraform, we can simply treat them as values. Values can't be changed, if we need another one, we must create a new one. The underlying system takes care of all the mutable logic underneath. In some way, immutable strings in your favourite programming language can be just thought of as a desired state system, where the compiler or interpreter makes sure to reconcile the value semantics with the underlying memory references in a performant way. Doing this for complex objects is not easy at all, and often not possible. 
 
 However, I find it pretty fascinating trying to think of how could treat something like a networking socket, a database or other inherently stateful objects as a value.
 
@@ -342,11 +340,11 @@ Do we need to add escape hatches to our interface so that the user can drop down
 
 I went through my view of what a desired-state system is and what are its central principles, I showed you some examples of where it's used and presented what I find are the important considerations you should keep in mind when using this abstraction.
 
-The ideas I presented in this talk are nothing new, and most of you have probably thought about this in some capacity. I hope that by going through it in a bit more structured manner you now have a clearer picture, or mental model, in your head that helps you in your work. 
+The ideas I presented here are nothing new, and most of you have probably thought about this in some capacity. I hope that by going through it in a bit more structured manner you now have a clearer picture, or mental model, in your head that helps you in your work. 
 
-At the of the day the world around us presents us with a stateful interface. We are limited by the fact that at the bottom of all our programs sits a von Neuman computer with a central processing unit, a data store and a connecting tube that can transmit a single word between the CPU and the store. An inherently mutable and imperative interface. 
+At the of the day the world around us is not mathematical, but inherently mutable and stateful. We are limited by the fact that at the bottom of all our programs sits a von Neuman computer with a central processing unit, a data store and a connecting tube that can transmit a single word between the CPU and the store. An inherently mutable and imperative interface. 
 
-But thanks to abstractions, sometimes, and in limited scope, we can pretend that’s not the case to simplify our interfaces.
+But thanks to abstractions, sometimes, and in limited scope, we can pretend that’s not the case and simplify our interfaces.
 
 Sources:
 
