@@ -3,6 +3,8 @@ layout: post
 title: Desired state systems
 ---
 
+(Note: this material was presented at [NDC Oslo 2021](https://ndcoslo.com/agenda/desired-state-how-react-kubernetes-and-control-theory-have-lots-in-common-0ded/0llw0hsd6pk))
+
 In this post I simply want to share with you a certain type of abstraction that I've encountered over the last couple of years working across the stack. It’s a model that comes up again and again in various areas of computing, from UI engineering to infrastructure management, databases, programming language theory and elsewhere. 
 
 For lack of a better term, we could call that abstraction *desired state*, but that name only describes a part of it. I'll go through some of the ways that we can look at this abstraction and show some examples of where it's used. My hope is that by the end of this talk you'll be able to not only spot this abstraction in the tools and APIs you encounter, but also be able to assess whether it's worth using in the projects and products you work on.
