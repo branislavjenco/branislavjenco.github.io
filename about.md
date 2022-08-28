@@ -4,7 +4,7 @@ title: About me
 permalink: /about/
 ---
 
-Hi! I'm a generalist software developer that enjoys learning, solving problems and helping others do the same. I like working across the stack, finding common patterns in unrelated areas for a better understanding of systems. I currently work mostly with Python/C++ and Kubernetes on the backend/infra side and React on the frontend side. I enjoy mentoring and I try to challenge myself by speaking at conferences at [NDC Oslo](https://branislavjenco.github.io/desired-state-systems-youtube.html) in December 2021.
+Hi! I'm a generalist software developer that enjoys learning, solving problems and helping others do the same. I like working across the stack, finding common patterns in unrelated areas for a better understanding of systems. I currently work mostly with Python/C++ and Kubernetes on the backend/infra side and React on the frontend side. I enjoy mentoring and I try to challenge myself by speaking at conferences, most recently at [NDC Oslo](https://branislavjenco.github.io/desired-state-systems-youtube.html) in December 2021.
 
 Currently I'm working at [Sesam](https://sesam.io/), where we are building a master data hub that simplifies the process of making up-to-date master data available in a data platform architecture.
 
