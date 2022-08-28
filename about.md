@@ -4,11 +4,13 @@ title: About me
 permalink: /about/
 ---
 
-Hi. I'm a software developer at [Sesam](https://sesam.io/), a data integration company based in Oslo where I'm dividing my time between backend (Python/C++) and frontend (React/Redux).
+Hi! I'm a generalist software developer that enjoys learning, solving problems and helping others do the same. I like working across the stack, currently working mostly with Python/C++ and Kubernetes on the backend/infra side and React on the frontend side. I enjoy mentoring.
+
+Currently I'm working at [Sesam](https://sesam.io/), where we are building a master data hub that simplifies the process of making up-to-date master data available in a data platform architecture.
 
 I previously worked as a full-stack developer at [Nornir](https://nornir.io/) in Oslo. Before that, I took a summer internship at [CERN](https://home.cern/), where I built a small web application for displaying data about beamlines operating in CERNs North & East Experimental Areas.
 
-I have a Bachelor degree in Computer Graphics and Visualizations from [Masaryk University](https://www.muni.cz/en) in Brno, Czech Republic. Currently I am also studying for a Masters degree at [IFI UiO](https://www.mn.uio.no/ifi/english/) in Oslo. I enjoy solving problems and learning about processing data, state reconciliation, control theory, declarative programming and other random topics.
+I have a masters degree in programming and system architecture from the [Institute of Informatics](https://www.mn.uio.no/ifi/english/) at the University of Oslo and a Bsc. degree in Computer Graphics and Visualizations from [Masaryk University](https://www.muni.cz/en) in Brno, Czech Republic. I enjoy solving problems and learning about processing data, state reconciliation, control theory, declarative programming and other random topics.
 
 This site is where I write about things I've learned, things I find interesting and mistakes I've made.
 
