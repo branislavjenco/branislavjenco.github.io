@@ -12,6 +12,8 @@ I previously worked as a full-stack developer at [Nornir](https://nornir.io/) in
 
 I have a masters degree in programming and system architecture from the [Institute of Informatics](https://www.mn.uio.no/ifi/english/) at the University of Oslo and a Bsc. degree in Computer Graphics and Visualizations from [Masaryk University](https://www.muni.cz/en) in Brno, Czech Republic. I enjoy solving problems and learning about processing data, state reconciliation, control theory, declarative programming and other random topics.
 
+You can find a more formal CV [here](https://branislavjenco.github.io/jenco_cv.pdf), otherwise all the information is on LinkedIn.
+
 This site is where I write about things I've learned, things I find interesting and mistakes I've made.
 
 ### Contact me
