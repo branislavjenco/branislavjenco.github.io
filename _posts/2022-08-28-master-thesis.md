@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Virtual LiDAR error models in point cloud compression (master thesis)
+title: Virtual LiDAR Error Models in Point Cloud compression (Master Thesis)
 redirect_from: master-thesis.html
 ---
 
