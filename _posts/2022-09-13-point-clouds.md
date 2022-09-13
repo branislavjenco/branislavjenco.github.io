@@ -1,0 +1,42 @@
+---
+layout: post
+title: Some basic information about point cloud
+redirect_from: point-clouds.html
+---
+
+# Point clouds
+A _point cloud_ is a data structure that is made up of an unordered set of points, each point usually representing a position in 3D space. When referring to a point cloud as a result of some 3D data acquisition system, it can be thought of as a point sampling of the real world (Kaiser et al., [2019](https://perso.telecom-paristech.fr/boubek/papers/GeoPrimFitSurvey/GeoPrimFitSurvey.pdf)). That means that each point, or _sample_, must have at least three properties associated with it, namely its $x$, $y$ and $z$ coordinates. We can therefore more formally define a point cloud $P$ of $n$ points as $P = \{p_i \mid i = 1,\ldots,n\},$
+where each point $p_i$ is a vector of its three coordinates, as $p_i = (x_i, y_i, z_i)$.
+
+Additional properties can be included with each sample, such as custom labels, RGB color values, texture information, reflectivity or information about the normal vector of the surface the point lies on.
+
+## Types of point clouds 
+
+Since a point cloud is just a set of points, it is a simple data structure for 3D geometry representation compared to something like a _mesh_ which is defined by vertices collected into faces that describe surfaces (another often used term is a Computer Aided Design (CAD) model. Used in manufacturing or construction, CAD models are usually made up of parametrized solids and boolean operations between them). This points to the fact that a point cloud is more _general_ &mdash; it does not have to describe 3D geometry with surfaces, it could be a collection of particles or something of that nature. 
+
+While it is a very simple data structure, individual point clouds can significantly vary in their properties. These are often dictated by the process with which the point cloud was created and have a large impact on the kinds of applications that the data can be used for.
+
+The type of scene captured by the point cloud is an important characteristic. Across most applications, we can distinguish three types of scenes:
+
+- *Object scenes*, where the goal is to create a highly detailed scan of an object. In cases where the object is a human, these are sometimes called _avatars_. These point clouds represent an _outside-in_ approach, where one or more sensors scan the object from multiple angles in a controlled environment. In case of small objects, these can be placed on a rotating plate to minimize inaccuracies. Capturing both the correct _volume_ and _surface_ information is essential for these use cases. Object scenes are also the most common in synthetic point cloud datasets, usually created by uniformly or randomly sampling a mesh.
+- *Outdoor scenes*, in which a sensor captures its surrounding environment, an _inside-out_ approach. Use cases include robotics and autonomous localization and navigation, but also construction. In robotics, deriving real-time but coarse understanding of the environment around the sensor is most valuable, whereas in construction, accuracy and precision is more important.
+- *Indoor scenes*, where the sensor similarly uses an _inside-out_ approach to capture the surrounding room or a different environment that is assumed to be closed around the device. In these types of scenes, the most important information to be captured is the geometry and structure of the visible surfaces. When working on indoor and outdoor scenes, research papers usually hold the _Manhattan world assumption_, which states that most surfaces are aligned with the three principal directions in 3D space (Furukawa et al., [2009](https://ieeexplore.ieee.org/document/5459145)).
+
+
+## Point cloud properties
+
+The type of scene and the acquisition process then influence properties like:
+- *Scale*, which specifies the relative size of the point cloud. Depending on the acquisition method, this property is often unknown. When creating point clouds from RGB images, some kind of reference is needed to get the correct scale (this can be challenging as the lens distortion has to be taken into account). Time-of-flight based sensors are able to infer the correct scale based on the speed of light.
+- *Density distribution*, describing the number of samples per unit of measure. In synthetic point clouds, often created by sampling a mesh, the distribution is usually uniform, but this is rarely the case in real world scans.
+- *Accuracy distribution*, measuring the error compared to the real scanned environment. This property is usually important in larger scenes acquired using light-based sensors, whose accuracy decreases with distance that the light rays travel.
+- *Noise distribution*, which can be caused by the generation process or by the noise inherent in the scanned environment. By default, noise is not present in synthetic scans, unless it is artificially added based on some predefined distribution. For real-world scans, the noise comes from the physical characteristics of the sensor, which can be compounded when multiple scans are merged into one. Moving objects and presence of fog or rain contribute to noise as well.
+-*Occlusion*, or presence of holes. Unless artificially modeled, this problem is also not present in synthetic scans. One of the uses of adding holes artificially is when training deep learning algorithms for inpainting applications (inpainting is the process of automatically filling missing data). Holes created by occlusion are a natural consequence of the fact that the sensor technology depends on line-of-sight light detection. 
+
+Another important property is the storage requirements for storing point cloud data. This depends on the size and density of the point cloud. For highly dense point clouds, storage and processing power requirements are very high as point clouds can be thought of as an inefficient representation of 3D geometry. The reason is that, while a triangle surface in 3D space can be most simply described by the coordinates of its three vertices along with the normal vector, in a point cloud, it is likely represented with a variable amount of samples that are usually non-uniformly distributed on the triangle surface. 
+
+## Creating point clouds
+A point cloud can be generated from digital assets or from real-world environments. Digital 3D objects are usually "scanned" by the means of uniform sampling on a 3D voxel grid. This technique creates point clouds with a predictable and uniform density distribution and accuracy that is controlled by the grid scale. Other techniques include simply sampling the vertices of the object mesh, which creates a sparse point cloud with high accuracy, but low density in flat areas with low frequency information. Unless added artificially, point clouds generated from 3D assets are devoid of noise. A technique employed in this thesis is to take virtual scenes and simulate a scan with a virtual sensor. This allows for more realistic modelling of occlusion and noise.
+
+A multitude of acquisition techniques exist for scanning real-world environments. Small and simple objects can be put on a turntable and scanned by cameras and laser sensors from all angles in a highly controlled environment. This creates a dense point cloud with high accuracy. Purely image-based (photogrammetry) techniques exist as well, such as the structure-from-motion (SfM) and multiview stereo (MVS) algorithms. Robotics approaches using visual simultaneous localization and mapping (also known as SLAM) create fast but low-accuracy point clouds to estimate the path of a camera through space. 
+
+Structured light sensors use a projector to emit a known pattern onto the scene that is then captured by a camera. The distortions in the pattern are then used to discern the depth information. This technique was used in the first generation _Microsoft Kinect_ device and in the _Matterport Camera_. Time-of-flight sensors (also known as range imaging sensors) measure the distance between the sensor and points in the environment based on the round-trip time of a light signal to create samples of points. These can either based on visible or infrared light such as the later generation _Microsoft Kinect_ or use lasers, in the case of LiDAR devices, such as the _Leica BLK360_, _Velodyne HDL-32E_, _HDL-64E_ and _VLP-16_.
