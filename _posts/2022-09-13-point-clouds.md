@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Some basic information about point cloud
+title: Point cloud basics
 redirect_from: point-clouds.html
 ---
 
