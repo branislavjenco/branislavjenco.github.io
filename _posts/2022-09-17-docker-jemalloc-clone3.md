@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Issues with older docker versions and newer Ubuntu containers 
+title: Containers using glibc v2.34+ don't work on some older docker versions 
 redirect_from: docker-jemalloc-clone3.html
 ---
 
