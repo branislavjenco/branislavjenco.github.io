@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Desired state systems: React, K8s, Terraform and Control Theory
+title: Desired state systems
 redirect_from: desired-state-systems.html
 ---
 
