@@ -10,4 +10,4 @@ But it has a small quirk in its implementation that tripped me up when testing t
 Relevant links:
 
 - [Implementation](https://github.com/psf/requests/blob/main/src/requests/models.py#L853)
-- GitHub Issues [1](https://github.com/psf/requests/issues/989) | [2](https://github.com/psf/requests/issues/2433)
+- GitHub Issues [1](https://github.com/psf/requests/issues/989) [2](https://github.com/psf/requests/issues/2433)
