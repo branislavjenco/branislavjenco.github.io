@@ -4,11 +4,11 @@ title: About me
 permalink: /about/
 ---
 
-I'm a generalist software developer that enjoys learning, solving problems and helping others do the same. I like working across the stack, finding common patterns in unrelated areas for a better understanding of systems. I currently work mostly with Python and Kubernetes on the backend/infra side and React on the frontend side. I enjoy mentoring and I try to challenge myself by speaking at conferences, most recently at [NDC Oslo](https://branislavjenco.github.io/desired-state-systems-youtube.html) in December 2021.
+I'm a generalist software developer that enjoys learning, solving problems and helping others do the same. I like working across the stack, finding common patterns in unrelated areas for a better understanding of systems. I currently work mainly with C#/.NET and Python. I enjoy mentoring and I try to challenge myself by speaking at conferences, most recently at [NDC Oslo](https://branislavjenco.github.io/desired-state-systems-youtube.html) in December 2021.
 
-Currently I'm working as a tech lead at [Sesam](https://sesam.io/), where we are building a master data hub that simplifies the process of making up-to-date master data available in a data platform architecture.
+I work as a senior developer at [4Subsea](https://4subsea.com), helping build a platform empowering engineers to get the right data they need when they need it.
 
-I previously worked as a full-stack developer at [Nornir](https://nornir.io/) in Oslo. Before that, I took a summer internship at [CERN](https://home.cern/), where I built a small web application for displaying data about beamlines operating in CERNs North & East Experimental Areas.
+Previously I worked as a full-stack developer and tech lead at [Sesam](https://sesam.io/), building a master data hub that simplifies the process of making up-to-date master data available in a data platform architecture, and before that, as a full-stack developer at [Nornir](https://nornir.io/) in Oslo, working with IoT. In 2016, I took a summer internship at [CERN](https://home.cern/), where I built a small web application for displaying data about beamlines in CERNs North & East Experimental Areas.
 
 I have a masters degree in programming and system architecture from the [Institute of Informatics](https://www.mn.uio.no/ifi/english/) at the University of Oslo and a Bsc. degree in Computer Graphics and Visualizations from [Masaryk University](https://www.muni.cz/en) in Brno, Czech Republic. I enjoy solving problems and learning about processing data, state reconciliation, control theory, declarative programming and other random topics.
 
