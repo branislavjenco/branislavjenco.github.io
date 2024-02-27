@@ -1,7 +1,7 @@
 ---
 layout: page
 title: About me
-permalink: /about/
+permalink: /about
 ---
 
 I'm a generalist software developer that enjoys learning, solving problems and helping others do the same. I like working across the stack, finding common patterns in unrelated areas for a better understanding of systems. I currently work mainly with C#/.NET and Python. I enjoy mentoring and I try to challenge myself by speaking at conferences, most recently at [NDC Oslo](https://branislavjenco.github.io/desired-state-systems-youtube.html) in December 2021.
