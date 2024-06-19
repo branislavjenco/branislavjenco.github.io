@@ -12,4 +12,7 @@ When in doubt, flush DNS. I had an interesting issue in Windows VM running in Az
 
 ## 2024-06-10
 In Azure Data Explorer, you can use `.show` to look up interesting information about the [functions](https://learn.microsoft.com/en-us/azure/data-explorer/kusto/management/show-function), previous [commands and queries](https://learn.microsoft.com/en-us/azure/data-explorer/kusto/management/commands-and-queries) or [clusters](https://learn.microsoft.com/en-us/azure/data-explorer/kusto/management/show-cluster-database) when writing a query. Example: `.show cluster databases datastats` shows stats about original/compressed/index size of your databases.
+
+## 2024-06-19
+In PowerShell you have to use single quotes (`'`) to escape dollar signs (`$`) in a string. Alternatively escape particular `$` with a backtick in front (`` `$ ``).
  
