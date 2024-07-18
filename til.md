@@ -4,6 +4,13 @@ title: Today I learned
 permalink: /til
 ---
 
+## 2024-07-18
+If you add an entry into the hosts file in Windows (path is `C:\Windows\System32\drivers\etc\hosts`) for the loopback address (`127.0.0.1`), but your domain mapping still doesn't work, try adding the IPv6 version as well (`::1`).
+```
+127.0.0.1 example.com
+::1 example.com
+```
+
 ## 2024-07-17
 I had an issue with an SMB File Share in an Azure Storage Account stuck in an in-between state. The file share gets regularly deleted and created anew, and has a seven-day soft delete policy, meaning it has multiple deleted versions saved. At some point, maybe because of a Service Health event, the latest version of the file share was both _not present_ among the active file shares, but also _wasn't_ "deleted". Any operation on the file share returned a 404, including trying to delete it. Doing a `CreateIfNotExists` on the file share also failed. Hence, we were stuck.
 
