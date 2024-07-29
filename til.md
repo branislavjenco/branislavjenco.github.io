@@ -6,6 +6,14 @@ permalink: /til
 
 Collection of small things I learned about that are worth noting down.
 
+## [2024-07-29](#2024-07-29)
+Using PowerShell, you can quickly search for a string in the heads of all branches in a git repository like this:
+```
+git ls-remote --heads -q | % { git grep <your-string> $_.Split()[0] }
+```
+The first command returns the hashes and names of all the heads of branches. We then iterate over this list, and pick out only the first part (the hash) to be used by the `git grep` command. `Split()[0]` here is kind of like a poor man's `xargs`.
+
+
 ## [2024-07-18](#2024-07-18)
 If you add an entry into the hosts file in Windows (path is `C:\Windows\System32\drivers\etc\hosts`) for the loopback address (`127.0.0.1`), but your domain mapping still doesn't work, try adding the IPv6 version as well (`::1`).
 ```
