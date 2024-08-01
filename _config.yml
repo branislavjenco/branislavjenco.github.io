@@ -24,8 +24,8 @@ github_username: branislavjenco
 
 # Build settings
 markdown: kramdown
-theme: minima
-# remote_theme: aterenin/minima-reboot
+# theme: minima
+remote_theme: poole/lanyon
 
 plugins:
   - jekyll-feed
