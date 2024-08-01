@@ -4,7 +4,7 @@ title: Today I learned
 permalink: /til
 ---
 
-Collection of small things I learned about that are worth noting down.
+Collection of small things I learned about that are worth noting down. Some of these might turn into proper posts over time.
 
 ## [2024-07-29](#2024-07-29)
 Using PowerShell, you can quickly search for a string in the heads of all branches in a git repository like this:
