@@ -16,7 +16,7 @@
 title: Branislav Jenco
 email: branislavjenco@gmail.com
 description: >- # this means to ignore newlines until "baseurl:"
-  Tackling complexity.
+  
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "http://branislavjenco.github.io" # the base hostname & protocol for your site, e.g. http://example.com
 twitter_username:
@@ -24,7 +24,9 @@ github_username: branislavjenco
 
 # Build settings
 markdown: kramdown
-theme: minima
+# theme: minima
+remote_theme: aterenin/minima-reboot
+
 plugins:
   - jekyll-feed
   - jekyll-redirect-from
