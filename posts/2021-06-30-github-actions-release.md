@@ -1,4 +1,6 @@
-# How to upload assets to an existing Release in Github Actions
+---
+title: How to upload assets to an existing Release in Github Actions
+---
 
 Summary: use `github.event.release.upload_url` as the upload URL for Release assets when triggering a workflow on a published GitHub Release.
 

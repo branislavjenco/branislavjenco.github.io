@@ -1,4 +1,6 @@
-# Point cloud basics
+---
+title: Point cloud basics
+---
 
 ## Point clouds
 A _point cloud_ is a data structure that is made up of an unordered set of points, each point usually representing a position in 3D space. When referring to a point cloud as a result of some 3D data acquisition system, it can be thought of as a point sampling of the real world (Kaiser et al., [2019](https://perso.telecom-paristech.fr/boubek/papers/GeoPrimFitSurvey/GeoPrimFitSurvey.pdf)). That means that each point, or _sample_, must have at least three properties associated with it, namely its $$x$$, $$y$$ and $$z$$ coordinates. We can therefore more formally define a point cloud $$P$$ of $$n$$ points as $$P = \{p_i \mid i = 1,\ldots,n\},$$
