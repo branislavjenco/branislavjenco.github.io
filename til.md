@@ -1,11 +1,3 @@
----
-layout: page
-title: Today I learned
-permalink: /til
----
-
-Collection of small things I learned about that are worth noting down. Some of these might turn into proper posts over time.
-
 ## [2024-07-29](#2024-07-29)
 Using PowerShell, you can quickly search for a string in the heads of all branches in a git repository like this:
 ```
@@ -37,8 +29,3 @@ When in doubt, *flush DNS*. I had an interesting issue in Windows VM running in 
 
 ## [2024-03-03](#2024-03-03)
 Hash-based partitioning of your storage allows you to work on small but representative samples of data when collecting statistics.
-
-
-
-
-
