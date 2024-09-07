@@ -1,5 +1,5 @@
 ---
-title: Make sure to correctly assign pods to nodes when using kubernetes/kind and port mapping
+Make sure to correctly assign pods to nodes when using kubernetes/kind and port mapping
 ---
 
 We are using [`kind`](https://kind.sigs.k8s.io/) for local k8s development and CI testing. `kind` allows you to run a k8s cluster using docker containers as worker nodes which makes it quick to spin up and tear down an environment. We've been having an intermittent issue with the local dev environment as we started using [`helm`](https://helm.sh/docs/topics/charts/) charts for deployment of our application, where we could not talk to to an exposed [`NodePort`](https://kubernetes.io/docs/concepts/services-networking/service/#nodeport) service of the cluster. This service routes to a [Traefik](https://traefik.io/) instance running inside the cluster which then routes to our components.

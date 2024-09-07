@@ -1,5 +1,5 @@
 ---
-title: My Desired state systems talk is now up on YouTube
+My Desired state systems talk is now up on YouTube
 ---
 
 The video version of my "Desired state systems" talk I gave at NDC Oslo in December 2021 is now available on YouTube.

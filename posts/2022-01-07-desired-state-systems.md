@@ -1,5 +1,5 @@
 ---
-title: Desired state systems
+Desired state systems
 ---
 
 In December 2021 I had the opportunity to present a talk called "Desired state: how React, Kubernetes and control theory have lots in common" [at NDC Oslo 2021](https://www.youtube.com/watch?v=TENp6xaSd3M). This is a text version of that talk. In this post I want to share with you a certain type of abstraction that I've encountered over the last couple of years working across the stack. It’s a model that comes up again and again in various areas of computing, from UI engineering to infrastructure management, databases, programming language theory etc.

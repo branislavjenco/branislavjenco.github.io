@@ -1,5 +1,5 @@
 ---
-title: Point cloud basics
+Point cloud basics
 ---
 
 ## Point clouds
