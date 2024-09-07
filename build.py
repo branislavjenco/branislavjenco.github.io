@@ -43,3 +43,5 @@ with open(f"{build_folder}/about.html") as f:
 
 with open(f"{build_folder}/index.html", 'w') as f:
     f.write(result)
+
+shutil.copytree("images", "build/images", dirs_exist_ok=True)

@@ -1,6 +1,11 @@
 <html>
     <head>
         <title>Branislav Jenco</title>
+        <style>
+            .container {
+                max-width: 300px;
+            }
+        </style>
         <script
             data-goatcounter="https://branislavjenco.goatcounter.com/count"
             async
@@ -39,12 +44,12 @@
         </script>
     </head>
     <body>
-        <div>
-            {{ about|safe }}
-        </div>
-        <div>
-            <h1>Posts</h1>
-            {{ posts|safe }}
+        <div class="container">
+            <div>{{ about|safe }}</div>
+            <div>
+                <h1>Posts</h1>
+                {{ posts|safe }}
+            </div>
         </div>
     </body>
 </html>

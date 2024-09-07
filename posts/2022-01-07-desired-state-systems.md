@@ -35,7 +35,7 @@ Consider an ordinary elevator.
 You come up to it and see the buttons with arrows pointing up and down. I don’t know about you, but growing up, my brain always interpreted the up and down arrows as “I want the elevator to go up” and “I want the elevator to go down”, instead of “I want to go up” and “I want to go down”. In other words I wanted to directly control it. To this day it sometimes takes a tiny bit of my mental capacity to remember this rule.
 
 <p align="center">
-   <img src="/images/desired_state/elevator0.png" width="100%" alt="An ordinary elevator" />
+   <img src="./images/desired_state/elevator0.png" width="100%" alt="An ordinary elevator" />
 </p>
 
 To a person coming to the elevator, what do the buttons represent? They’re the elevator’s *interface*. A device that allows the user to communicate with the system. We can think of a user as just another system, and arrive at a generalized definition of an interface as any point where two systems interact. Now, my possible confusion could stem from the fact that an arrow pointing somewhere can both mean “I want to go there” and “I want this thing to go there”. There’s probably not many people who share this confusion. Let’s ignore the question of interpreting the user interface and compare the two approaches as if they were both entirely valid.
@@ -91,13 +91,13 @@ The point is that by taking away imperative control, and adding domain specific 
 Note that the elevator is doing the same thing. Going up or down, stopping at this or that floor. So something inside has to have direct imperative control of the elevator, otherwise it wouldn’t matter that we want to go somewhere, it wouldn’t move. A way I like to think about this is that the declarative interface wraps around the imperative interface.
 
 <p align="center">
-   <img src="/images/desired_state/elevator.png" width="100%" alt="Elevator as a declarative interface wrapping over an imperative interface" />
+   <img src="./images/desired_state/elevator.png" width="100%" alt="Elevator as a declarative interface wrapping over an imperative interface" />
 </p>
 
 This wrapping is just another word for abstraction. It is this type of abstraction that I see everywhere around me. We could call this abstraction desired state. We give the system our desired state – we want the elevator on our floor – and let the system take care of the process of bringing the actual state of the elevator in line with our desired state. In order to do so, it must be able to query the underlying system to obtain the current state, compare or *diff* it to the desired state, and issue commands to it which update the actual state accordingly. In order to differentiate between the various words, let's use the verb *apply* for the act of giving the desired state to our system.
 
 <p align="center">
-   <img src="/images/desired_state/elevator2.png" width="100%" alt="Elevator as a desired state system" />
+   <img src="./images/desired_state/elevator2.png" width="100%" alt="Elevator as a desired state system" />
 </p>
 
 Let's generalize these principles. 
@@ -107,13 +107,13 @@ Let's generalize these principles.
 A desired state system wraps an underlying API or system which has an imperative, mutable interface and allows its user to specify a desired state for this underlying system. The wrapper is then responsible for figuring out the actual state of the underlying system, compare it to the desired state given to it by the user, and apply the necessary changes to bring the actual state in line with the desired state. 
 
 <p align="center">
-   <img src="/images/desired_state/desired_state.png" width="100%" alt="Components of a desired state system" />
+   <img src="./images/desired_state/desired_state.png" width="100%" alt="Components of a desired state system" />
 </p>
 
 The part in the middle, where it goes through this loop of observing the underlying system, comparing its actual state to the desired state and acting on it accordingly is called reconciliation.
 
 <p align="center">
-   <img src="/images/desired_state/reconciliation.png" width="100%" alt="The reconciliation loop" />
+   <img src="./images/desired_state/reconciliation.png" width="100%" alt="The reconciliation loop" />
 </p>
 
 As I mentioned in the example, we can think of this abstraction in several different ways.
@@ -151,7 +151,7 @@ React wraps around the browser document object model, or DOM, which is a deeply 
 Let's look at React through the lens of desired state. When the page loads, some initial desired state in the form of a component tree is given to React. Internally, React keeps a representation of this tree in memory and whenever the desired state changes -- based on the user input or other triggers -- it compares the old state to the new state. This internal representation used to be called the virtual DOM, though that name isn't used much anymore.
 
 <p align="center">
-   <img src="/images/desired_state/react_desired_state.png" width="100%" alt="React as a desired state system" />
+   <img src="./images/desired_state/react_desired_state.png" width="100%" alt="React as a desired state system" />
 </p>
 
 The comparison of states generates a sequence of operations that need to be performed on the actual DOM. Generic algorithms for generating the minimum number of operations needed to transform one tree into another have complexity in the order of O(n^3) where n is the number of elements in the tree. However, React has to do this really fast, and so it uses a series of heuristics to compute the least number of operations necessary. 
@@ -169,7 +169,7 @@ Now I want to get to the point that React is a simplified desired state system a
 We say that a closed loop system is one that is interconnected in a cycle. If System 1 gives signals to System 2, the outputs of System 2 are in some way a part of the input to System 1. This is called *feedback*. A key feature of feedback is that it provides robustness to uncertainty. Closed-loop systems automatically achieve and maintain the desired output condition by comparing it with the actual condition.
 
 <p align="center">
-   <img src="/images/desired_state/open_close_loop.png" width="100%" alt="Open loop system vs closed loop system" />
+   <img src="./images/desired_state/open_close_loop.png" width="100%" alt="Open loop system vs closed loop system" />
 </p>
 
 While feedback has many advantages, it also brings a set of drawbacks. If not designed properly, the system can exhibit instability. This could be in the form of positive feedback, like when a microphone’s amplifier is turned up too high in a room. Furthermore, feedback inherently couples different parts of the system. [3]
@@ -181,7 +181,7 @@ On the other hand, in an open loop system, this interconnection is severed.
 While React is a desired state system within our model, it's actually an open loop system. React does not keep rechecking the current state of the Browser DOM to see if it's in the correct shape. 
 
 <p align="center">
-   <img src="/images/desired_state/react_open_loop.png" width="100%" alt="React is an open loop system" />
+   <img src="./images/desired_state/react_open_loop.png" width="100%" alt="React is an open loop system" />
 </p>
 
 For one, that would probably be prohibitively slow. It also just doesn't need to. Unlike many other desired-state systems, React operates with the assumption that it is the *only thing touching its domain*. It generally assumes that there is no other library or person modifying the page under its feet. You can test this yourself using developer tools in your browser. If you modify an HTML element controlled by React, the library will not try to overwrite your modification unless a parent of the changed element gets rerendered and the whole subtree replaced.
@@ -207,7 +207,7 @@ Every time you want to make changes to it, it will go and obtain the current sta
 In the resulting diff you can then see what changes your new plan would make, but also whether your actual state has drifted from your saved tfstate. In other words, unlike React, Terraform is a closed loop system. Ultimately, this is because it's optimizing for solving a different problem - while React needs to have fast updates and can assume that no one else touches its domain, Terraform can spend much more time (and does) figuring out the difference to the actual state. It crucially cannot assume resources it manages are left untouched. 
 
 <p align="center">
-   <img src="/images/desired_state/terraform_desired_state.png" width="100%" alt="Terraform as a desired state system" />
+   <img src="./images/desired_state/terraform_desired_state.png" width="100%" alt="Terraform as a desired state system" />
 </p>
 
 Much like you can extend React with different hosts, Terraform has a collection of plugins called providers that you can use. A provider is responsible for understanding the API interactions with some kind of service and exposing resources based on that API. And of course you can create your own. Unlike React, Terraform has an added complication of how to define what a resource is and what is its configuration. The configuration can be specified as its own resource or just be a part of the parent resource. This can vary between providers and many resource types support both. One of the harder parts of Terraform is managing this coupling.
@@ -233,7 +233,7 @@ While it also offers a sort-of imperative-like API, the core of its use is done 
 We can then look at Kubernetes through the lens of our model. Similarly to Terraform, you give the system the desired state of a particular resource in the cluster, this time in the form of a yaml file.
 
 <p align="center">
-   <img src="/images/desired_state/kubernetes_desired_state.png" width="100%" alt="Kubernetes as a desired state system" />
+   <img src="./images/desired_state/kubernetes_desired_state.png" width="100%" alt="Kubernetes as a desired state system" />
 </p>
 
 A component called a *controller* inside Kubernetes then has the responsibility to bring the actual state of the given resource in line with the desired state. Unlike Terraform, this happens continuously. If you try to delete one of the pod replicas in a deployment with 3 desired replicas, Kubernetes will immediately spin up a new one. Likewise, if a pod keeps crashing, it's going to keep trying to run, as it tries to keep the actual state in line with the desired state. Kubernetes is a closed-loop system.
@@ -245,7 +245,7 @@ Another interesting concept from control theory which comes up in a system with 
 Hysteresis characterizes a system whose behaviour does not only depend on its input at time t, but also on the history of this input. You can also think of it as adding artificial lag to the system. A widely used example of this is a thermostat. Let’s say we set the thermostat to a temperature of 20 degrees. Without hysteresis, as soon as the temperature hits this desired state, the heating turns off. But that means that very quickly, the temperature goes back down under 20 degrees, turning the heating back on. The thermostat system starts oscillating and quickly turning the heating on and off. When we add hysteresis, the thermostat waits until the temperature is above, say 22 degrees before turning the heating off. Likewise, the thermostat will wait until the temperature hits less than, say 18 degrees before turning the heating back on. This ensures smoother and more reliable operation of the system. [3]
 
 <p align="center">
-   <img src="/images/desired_state/hysteresis.png" width="100%" alt="Hysteresis" />
+   <img src="./images/desired_state/hysteresis.png" width="100%" alt="Hysteresis" />
 </p>
 
 ### Kubernetes controllers
@@ -255,13 +255,13 @@ In Kubernetes, this concept comes into play when it has to decide whether to mov
 Kubernetes is actually made up of many of controllers, working together to bring the actual state close to the desired one. Each controller can act upon one or more resource types.
 
 <p align="center">
-   <img src="/images/desired_state/kubernetes_multiple.png" width="100%" alt="Many controllers work together to bring the actual state in line with the desired state" />
+   <img src="./images/desired_state/kubernetes_multiple.png" width="100%" alt="Many controllers work together to bring the actual state in line with the desired state" />
 </p>
 
 These controllers are actually often nested -- a particular control loop (controller) uses one kind of resource as its desired state, and has a different kind of resource that it manages to make that desired state happen.
 
 <p align="center">
-   <img src="/images/desired_state/kubernetes_nested.png" width="100%" alt="Outputs of controllers can serve as inputs to other controllers" />
+   <img src="./images/desired_state/kubernetes_nested.png" width="100%" alt="Outputs of controllers can serve as inputs to other controllers" />
 </p>
 
 Allow me one more digression into basics of control theory, this one comes from circuit design and CPU interrupts.
@@ -273,7 +273,7 @@ When one system needs to give another some information over the wire, there are 
 The second option is what we call level-triggered logic. In this case, system 1 brings the voltage up and keeps it there until it's sure it's been registered by system 2. This approach is more robust, as system 2 can check the state of the wire at any time. [4]
 
 <p align="center">
-   <img src="/images/desired_state/edge_level_triggered.png" width="100%" alt="Edge vs level triggered logic" />
+   <img src="./images/desired_state/edge_level_triggered.png" width="100%" alt="Edge vs level triggered logic" />
 </p>
 
 You can maybe see some parallels between this and event driven communication versus polling for changes.
