@@ -1,0 +1,42 @@
+/* * {
+    box-sizing: border-box;
+} */
+
+.container {
+    margin: 0 auto;
+    max-width: 500px;
+    line-height: 1.3;
+    font-family: sans-serif;
+}
+
+code {
+    background-color: rgb(240, 240, 240);
+    border-radius: 5px;
+}
+
+h2 {
+    font-size: 1.2rem;
+}
+
+p {
+    margin: 0 0 1rem 0;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+blockquote {
+    font-style: italic;
+    background-color: rgb(240, 240, 240);
+    padding: 5px;
+    border-left: 10px solid #ccc;
+    margin: 1.5em 10px;
+    padding: 0.5em 10px;
+}
+
+blockquote p {
+    display: inline;
+}

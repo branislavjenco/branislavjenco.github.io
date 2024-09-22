@@ -1,5 +1,6 @@
 ---
 Tiny project - adding useful map layers to finn.no
+2023-05-20
 ---
 
 Recently I've been spending a lot of time looking at real estate listings. In Norway, the one stop website for this is finn.no. Over time I've realized there's a couple of things I want to check with every listing that I'm interested in, that I can't do on the website itself. These include:

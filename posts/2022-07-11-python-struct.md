@@ -1,5 +1,6 @@
 ---
 Tiny project - Python `struct` format explainer
+2022-07-11
 ---
 
 Over the last weekend and a half I made this tiny website [pythonstruct.com](https://pythonstruct.com). It gives users a quick explanation of the format strings used in [Python's `struct` module](https://docs.python.org/3/library/struct.html). You can paste in a string like `<hhl` and get an instant explanation that the structure being packed/unpacked used is two `short`s and one `long` with little-endian byte order.

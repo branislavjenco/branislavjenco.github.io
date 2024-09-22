@@ -23,10 +23,22 @@ def add_frontmatter(lines):
     filename = date + "-" + "-".join(lines[0].split(" ")[:3])
     return new_lines, filename
 
-with open("til.md") as f:
-    til_posts = f.read().split("\n\n\n")
-    for post in til_posts:
-        lines = post.split("\n")
-        new_lines, filename = add_frontmatter(lines)
-        with open(f"{posts_folder}/{filename}.md", 'w') as f:
-            f.writelines(new_lines)
+def insert_dates(posts, posts_folder):
+    for filename in posts:
+        if filename.endswith(".md"):
+            date_part = filename[:10]
+            
+            file_path = os.path.join(posts_folder, filename)
+            
+            with open(file_path, 'r') as file:
+                lines = file.readlines()
+            
+            if len(lines) >= 2:
+                lines.insert(2, f"{date_part}\n")
+            else:
+                lines.append(f"{date_part}\n")
+            
+            with open(file_path, 'w') as file:
+                file.writelines(lines)
+
+insert_dates(posts_to_publish, posts_folder)

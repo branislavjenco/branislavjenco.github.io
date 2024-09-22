@@ -1,5 +1,6 @@
 ---
 Containers using glibc v2.34+ don't work on some older docker versions 
+2022-09-17
 ---
 
 After updating a docker image to use Ubuntu 22.04 as base (from 20.04), error messages started appearing when running containers, looking like this:
@@ -27,6 +28,7 @@ Importantly, the `docker.io` package used by Ubuntu contains a [patch that fixes
 In summary, make sure you are using docker v20.10.10 if using `docker-ce` or a patched older version if using `docker.io` when running images with glibc v2.34+.
 
 Some other relevant discussions on github:
+
 - [[20.10 backport] seccomp: add support for "clone3" syscall in default policy](https://github.com/moby/moby/pull/42836)
 - [seccomp: add support for "clone3" syscall in default policy](https://github.com/moby/moby/pull/42681)
 

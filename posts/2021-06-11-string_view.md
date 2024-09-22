@@ -1,5 +1,6 @@
 ---
 Beware of footguns with C++ std::string_view
+2021-06-11
 ---
 
 I've been debugging a bug which recently popped up in our C++ code. We knew it was a problem in the C++ implementation because the Python version worked fine. However, in our unit tests, both the Python and C++ implementations were passing. The problem was inside a string matching routine. After a bit of debugging, I found out that the string matching function was behaving strangely. 
