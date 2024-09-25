@@ -18,6 +18,7 @@ env = Environment(
 
 index_template = env.get_template("index.html")
 about_template = env.get_template("about.html")
+post_template = env.get_template("mainpage_post.html")
 
 markdown.markdownFromFile(input="about.md", output=f"{build_folder}/about.html", extensions=extensions)
 about_html = ''
@@ -34,25 +35,24 @@ posts_to_publish = [
     if not f.startswith("xx") and f.endswith(".md")
 ]
 
+# TODO: make a post template
+# TODO: experiment with reflowing
+
 def preprocess(lines: list[str]):
     lines.pop(0)
-    title = f"## {lines.pop(0)}"
-    date = f"_{lines.pop(0)[:-1]}_\n"
+    title = lines.pop(0)
+    date = lines.pop(0)
     lines.pop(0)
-    new_lines = ["___\n", title, date, *lines]
-    return "".join(new_lines)
+    return title, date, "".join(lines)
 
 for filename in posts_to_publish:
     file_path = os.path.join(posts_folder, filename)
     if os.path.isfile(file_path):
         with open(file_path) as f:
             post_lines = f.readlines()
-            if "hosts" in post_lines[1]:
-                print(post_lines)
-            post_md = preprocess(post_lines) 
-            if "hosts" in post_lines[1]:
-                print(post_md)
+            title, date, post_md = preprocess(post_lines) 
             post_html = markdown.markdown(post_md, extensions=extensions)
+            post_html = post_template.render(title=title, date=date, body=post_html)
             posts_html = posts_html + post_html
 
 
