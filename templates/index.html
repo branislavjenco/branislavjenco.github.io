@@ -31,13 +31,40 @@
     </head>
     <body>
         <div class="container">
-
-            
             <span class="header">
                 <h1 class="title">branislav's blog</h1>
                 <a href="./about.html">About me</a>
             </span>
             <div>{{ posts|safe }}</div>
         </div>
+        <script>
+            let start = 100;
+            const container = document.querySelector(".container");
+            container.style.height = `${start}vh`;
+            let lastScrollTop = 0;
+
+            window.addEventListener("scroll", (event) => {
+                // Get the current scroll position
+                const scrollTop =
+                    window.scrollY || document.documentElement.scrollTop;
+                const windowHeight = window.innerHeight;
+                const documentHeight = document.documentElement.scrollHeight;
+
+                // Check if the user is at the bottom of the page
+                if (scrollTop + windowHeight >= documentHeight) {
+                    // Check if the user is scrolling down
+                    if (scrollTop > lastScrollTop) {
+                        const container = document.querySelector(".container");
+
+                        start = start + 20;
+                        container.style.height = `${start}vh`;
+                    }
+                }
+
+                // Update the last scroll position
+                lastScrollTop = scrollTop <= 0 ? 0 : scrollTop; // For Mobile or negative scrolling
+                // console.log("scroll", event);
+            });
+        </script>
     </body>
 </html>

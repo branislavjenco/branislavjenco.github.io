@@ -1,6 +1,6 @@
 ---
 Quickly search in the HEADs of all branches in git with PowerShell
-2024-07-29
+July 29th, 2024
 ---
 
 Using PowerShell, you can quickly search for a string in the HEADs of all branches in a git repository like this:

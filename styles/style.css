@@ -9,6 +9,7 @@
     font-optical-sizing: auto;
     font-weight: 400;
     font-style: normal;
+    height: 100vh;
     columns: 3 auto;
 }
 
@@ -19,7 +20,8 @@ code {
 
 .post {
     /* break-before: column; */
-    break-inside: avoid;
+    /* break-inside: avoid; */
+    margin-bottom:2rem;
 }
 
 .date {
@@ -37,8 +39,15 @@ h1.title {
     font-weight: 900;
 }
 
+hr {
+    break-after: avoid;
+
+}
+
 h2 {
     font-size: 1.2rem;
+    break-after: avoid;
+    break-inside: avoid;
     margin-top: 1rem;
     font-weight: 700;
 }
