@@ -36,12 +36,33 @@
     <body>
         <div class="container">
             <span class="header">
+                <h1 class="title">branislav's blog</h1>
                 <span class="header">
-                    <h1 class="title">branislav's blog</h1>
+                    <a href="." style="margin-right: 1rem"
+                        ><h2>other posts</h2></a
+                    >
+                    <a href="./about.html"><h2>about</h2></a>
                 </span>
-                <a href="./about.html"><h2>about</h2></a>
             </span>
-            <div>{{ posts|safe }}</div>
+            <div class="post">
+                <hr />
+                <h1 a>{{ title|safe }}</h1>
+                <p>
+                    <em class="date">{{ date|safe }}</em>
+                </p>
+                {{ body|safe }}
+            </div>
+            <footer>
+                <hr>
+                <h2>Contact me</h2>
+                <p>
+                    <a href="mailto:branislavjenco@gmail.com">Email</a>
+                    <a href="https://www.linkedin.com/in/branislavjenco/"
+                        >LinkedIn</a
+                    >
+                    <a href="https://github.com/branislavjenco">GitHub</a>
+                </p>
+            </footer>
         </div>
     </body>
 </html>

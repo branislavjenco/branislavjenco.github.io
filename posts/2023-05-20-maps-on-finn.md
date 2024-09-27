@@ -1,9 +1,9 @@
 ---
-Tiny project - adding useful map layers to finn.no
-2023-05-20
+Tiny project &mdash; adding useful map layers to <i>finn.no</i>
+May 20th, 2023
 ---
 
-Recently I've been spending a lot of time looking at real estate listings. In Norway, the one stop website for this is finn.no. Over time I've realized there's a couple of things I want to check with every listing that I'm interested in, that I can't do on the website itself. These include:
+Recently I've been spending a lot of time looking at real estate listings. In Norway, the one stop website for this is [finn.no](https://www.finn.no/). Over time I've realized there's a couple of things I want to check with every listing that I'm interested in, that I can't do on the website itself. These include:
 
 - check if the house is in a potential flood area
 - check the noise levels around the house, from road or train 
@@ -14,6 +14,9 @@ You can find this information using publicly available maps at the Ministry of E
 To do this I made a simple Chrome extension that attaches an iframe of the map to a particular element on the ad page. What's great about the Map Viewer in ArcGIS is that it can be configured by its url to a large extent - the map layers included, the address search, even the visibility of the side panel - can all be specified as url parameters. With that, all I have to do is construct a url in the extension and display the iframe. You can find the extension on my [GitHub](https://github.com/branislavjenco/finn-map-layers) if you want to use it yourself.
 
 
+<p align="center">
+   <img src="./images/finn.jpg" width="100%" alt="how the map extension looks on finn.no" />
+</p>
 
 
 

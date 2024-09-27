@@ -1,6 +1,6 @@
 ---
 Desired state systems
-2022-01-07
+January 7th, 2022
 ---
 
 In December 2021 I had the opportunity to present a talk called "Desired state: how React, Kubernetes and control theory have lots in common" [at NDC Oslo 2021](https://www.youtube.com/watch?v=TENp6xaSd3M). This is a text version of that talk. In this post I want to share with you a certain type of abstraction that I've encountered over the last couple of years working across the stack. It’s a model that comes up again and again in various areas of computing, from UI engineering to infrastructure management, databases, programming language theory etc.
@@ -36,7 +36,7 @@ Consider an ordinary elevator.
 You come up to it and see the buttons with arrows pointing up and down. I don’t know about you, but growing up, my brain always interpreted the up and down arrows as “I want the elevator to go up” and “I want the elevator to go down”, instead of “I want to go up” and “I want to go down”. In other words I wanted to directly control it. To this day it sometimes takes a tiny bit of my mental capacity to remember this rule.
 
 <p align="center">
-   <img src="./images/desired_state/elevator0.png" width="100%" alt="An ordinary elevator" />
+   <img src="./images/desired_state/elevator0.png" width="100%" alt="an ordinary elevator" />
 </p>
 
 To a person coming to the elevator, what do the buttons represent? They’re the elevator’s *interface*. A device that allows the user to communicate with the system. We can think of a user as just another system, and arrive at a generalized definition of an interface as any point where two systems interact. Now, my possible confusion could stem from the fact that an arrow pointing somewhere can both mean “I want to go there” and “I want this thing to go there”. There’s probably not many people who share this confusion. Let’s ignore the question of interpreting the user interface and compare the two approaches as if they were both entirely valid.

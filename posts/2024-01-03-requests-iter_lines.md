@@ -1,6 +1,6 @@
 ---
-Python's requests package doesn't always yield lines in iter_lines()
-2024-01-03
+Python's requests package doesn't always yield lines in <code>iter_lines()</code>
+January 3rd, 2024
 ---
 
 The widely used `requests` package allows you to make HTTP requests from within Python. To better handle large responses, we can stream data using the parameter `stream=True` (e.g. `requests.get("http://some.com/bigfile", stream=True`). This means the library only gets the HTTP headers and gives back control to you to deal with getting the content of the response using a couple of different methods and properties. One of them is `response.iter_lines()` which is a Python generator that yields lines in the response. In combination with `stream=True` this allows us to not have to load the entire response into memory at once, rather process it line by line.

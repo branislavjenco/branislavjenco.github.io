@@ -1,6 +1,6 @@
 ---
 Chromedriver fixes behaviour, breaks test
-2021-06-08
+June 8th, 2021
 ---
 
 Our `selenium` CI tests started failing after a new version of Google's Chromedriver came out. As can be seen in the [release notes](https://chromedriver.storage.googleapis.com/index.html?path=91.0.4472.19/), v91 fixes an issue with the attribute endpoint. ChromeDriver (and other web drivers conforming to the [W3C web driver spec](https://w3c.github.io/webdriver/)) have a client-server architecture where commands are sent to specific endpoints. A command to get an element attribute is executed by a client (for example the Python Selenium module) making a request to a url like `http://<web-driver-hostname:port>/session/<session-id>/element/<element-id>/attribute/<attribute-name>'`.

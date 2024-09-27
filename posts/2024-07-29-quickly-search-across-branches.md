@@ -1,5 +1,5 @@
 ---
-Quickly search in the HEADs of all branches in git with PowerShell
+How to quickly search in the HEADs of all branches in git with PowerShell
 July 29th, 2024
 ---
 

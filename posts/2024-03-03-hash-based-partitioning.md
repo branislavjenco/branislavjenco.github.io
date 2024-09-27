@@ -1,6 +1,6 @@
 ---
 Hash-based partitioning of resources is useful for statistics
-2024-03-03
+March 3rd, 2024
 ---
 
 Hash-based partitioning of your resources allows you to work on small but representative samples of data when collecting statistics.

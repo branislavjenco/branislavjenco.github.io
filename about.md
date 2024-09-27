@@ -1,3 +1,5 @@
+# Hi, I'm Branislav.
+
 I'm a generalist software developer that enjoys always learning new things, solving problems and helping others do the same. I like working all across the software stack. I try to find common patterns in unrelated areas of the systems we work with and then blog about it [here]() or talk about it on conferences.
 
 I currently work mainly with C#/.NET and Python. I enjoy mentoring and I try to challenge myself by speaking at conferences, most recently at [NDC Oslo](https://branislavjenco.github.io/desired-state-systems-youtube.html) in December 2021.
@@ -12,7 +14,7 @@ You can find a more formal CV [here](https://branislavjenco.github.io/jenco_cv.p
 
 This site is where I write about things I've learned, things I find interesting and mistakes I've made.
 
-### Contact me
+## Contact me
 
 [Email](mailto:branislavjenco@gmail.com)
 [LinkedIn](https://www.linkedin.com/in/branislavjenco/)
