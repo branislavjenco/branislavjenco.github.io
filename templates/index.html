@@ -35,13 +35,13 @@
     </head>
     <body>
         <div class="container">
-            <span class="header">
-                <span class="header">
-                    <h1 class="title">branislav's blog</h1>
-                </span>
+            <header class="row">
+                <h1 class="title">branislav's blog</h1>
                 <a href="./about.html"><h2>about</h2></a>
-            </span>
-            <div>{{ posts|safe }}</div>
+            </header>
+            <hr />
+            <main>{{ posts|safe }}</main>
+            <footer></footer>
         </div>
     </body>
 </html>

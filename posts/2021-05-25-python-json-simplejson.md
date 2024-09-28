@@ -1,5 +1,5 @@
 ---
-json vs simplejson and Flask
+<code>json</code> vs <code>simplejson</code> and Flask
 May 25th, 2021
 ---
 

@@ -14,8 +14,8 @@ You can find a more formal CV [here](https://branislavjenco.github.io/jenco_cv.p
 
 This site is where I write about things I've learned, things I find interesting and mistakes I've made.
 
-## Contact me
+## Get in touch
 
-[Email](mailto:branislavjenco@gmail.com)
-[LinkedIn](https://www.linkedin.com/in/branislavjenco/)
+[Email](mailto:branislavjenco@gmail.com) |
+[LinkedIn](https://www.linkedin.com/in/branislavjenco/) |
 [GitHub](https://github.com/branislavjenco)

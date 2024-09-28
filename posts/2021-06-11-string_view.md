@@ -1,5 +1,5 @@
 ---
-Beware of footguns with C++ std::string_view
+Beware of footguns with <code>std::string_view</code> in C++
 June 11th, 2021
 ---
 
