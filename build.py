@@ -3,14 +3,15 @@ import shutil
 import markdown
 from jinja2 import Environment, FileSystemLoader, select_autoescape
 
-build_folder = "build"
 extensions = ['fenced_code', 'extra']
 
+# clear the build folder
+build_folder = "build"
 if os.path.isdir(build_folder):
     shutil.rmtree(build_folder)
 os.mkdir(build_folder)
 
-
+# setup jinja templates
 env = Environment(
     loader=FileSystemLoader("templates"),
     autoescape=select_autoescape()
@@ -21,12 +22,7 @@ about_template = env.get_template("about.html")
 post_template = env.get_template("mainpage_post.html")
 single_post_template = env.get_template("single_post.html")
 
-markdown.markdownFromFile(input="about.md", output=f"{build_folder}/about.html", extensions=extensions)
-about_html = ''
-
-with open(f"{build_folder}/about.html") as f:
-    about_html = f.read()
-
+about_html = markdown.markdown(input="about.md", output=f"{build_folder}/about.html", extensions=extensions)
 posts_folder = 'posts'
 posts_html = ''
 
@@ -53,7 +49,6 @@ for filename in posts_to_publish:
             post_html = markdown.markdown(post_md, extensions=extensions)
             post_rendered = post_template.render(title=title_link, date=date, body=post_html)
             posts_html = posts_html + post_rendered
-            print(title)
             single_post_rendered = single_post_template.render(title=title, date=date, body=post_html)
             with open(f"{build_folder}/{filename.replace('.md','')}.html", 'w') as f:
                 f.write(single_post_rendered)

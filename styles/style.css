@@ -2,6 +2,10 @@
     box-sizing: border-box;
 }
 
+a {
+    color:rgb(45, 45, 135);
+}
+
 .container {
     margin: 0 auto;
 
