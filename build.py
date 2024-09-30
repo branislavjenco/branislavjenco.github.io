@@ -28,8 +28,6 @@ single_post_template = env.get_template("single_post.html")
 posts_folder = 'posts'
 posts_html = ''
 
-
-
 posts_to_publish = [
     f for f
     in sorted(os.listdir(posts_folder), reverse=True)
