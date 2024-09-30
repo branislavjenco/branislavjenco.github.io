@@ -54,6 +54,12 @@ h1.title {
     margin: 0;
 }
 
+
+.title > a {
+    text-decoration: none;
+    color: black;
+}
+
 h2 {
     font-size: 1.2rem;
     margin-top: 1rem;

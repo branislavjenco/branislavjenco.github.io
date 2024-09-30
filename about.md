@@ -1,4 +1,4 @@
-# Hi, I'm Branislav.
+<!-- # Hi, I'm Branislav. -->
 
 I'm a generalist software developer that enjoys always learning new things, solving problems and helping others do the same. I like working all across the software stack. I try to find common patterns in unrelated areas of the systems we work with and then blog about it [here]() or talk about it on conferences.
 
