@@ -61,7 +61,6 @@ for filename in posts_to_publish:
 with open(f"about.md") as md_file:
     about_html = markdown.markdown(md_file.read(), extensions=extensions)
     with open(f"{build_folder}/about.html", 'w') as html_file:
-        print(about_html)
         result = about_template.render(about=about_html, footer=footer_html)
         html_file.write(result)
 

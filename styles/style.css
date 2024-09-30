@@ -4,6 +4,11 @@
 
 a {
     color:rgb(45, 45, 135);
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
 }
 
 .container {
