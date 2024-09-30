@@ -13,9 +13,3 @@ I have a masters degree in programming and system architecture from the [Institu
 You can find a more formal CV [here](https://branislavjenco.github.io/jenco_cv.pdf), otherwise all the information is on LinkedIn.
 
 This site is where I write about things I've learned, things I find interesting and mistakes I've made.
-
-## Get in touch
-
-[Email](mailto:branislavjenco@gmail.com) |
-[LinkedIn](https://www.linkedin.com/in/branislavjenco/) |
-[GitHub](https://github.com/branislavjenco)
