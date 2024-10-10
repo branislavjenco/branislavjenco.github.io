@@ -28,7 +28,8 @@ Importantly, the `docker.io` package used by Ubuntu contains a [patch that fixes
 
 In summary, make sure you are using docker v20.10.10 if using `docker-ce` or a patched older version if using `docker.io` when running images with glibc v2.34+.
 
-Some other relevant discussions on github:
+Some other relevant discussions on GitHub:
+
 - [[20.10 backport] seccomp: add support for "clone3" syscall in default policy](https://github.com/moby/moby/pull/42836)
 - [seccomp: add support for "clone3" syscall in default policy](https://github.com/moby/moby/pull/42681)
 
