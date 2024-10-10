@@ -15,7 +15,7 @@ To do this I made a simple Chrome extension that attaches an iframe of the map t
 
 
 <p align="center">
-   <img src="./images/finn.jpg" width="100%" alt="how the map extension looks on finn.no" />
+   <img src="/images/finn.jpg" width="100%" alt="how the map extension looks on finn.no" />
 </p>
 
 
