@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Modal UIs need a reset button
+title: Escape key clears the mind
 ---
 
 I've been a user of `vim` for many years. `vim` is a modal text editor. It uses "modes" that change what the keys on my keyboard do, in order to make writing and editing text more pleasant. There's a default one for moving around and typing commands (Normal mode), one for selecting text (Visual mode), one for actually typing (Insert mode), etc. I would define a modal user interface as one where, at any point in time, we find ourselves in some specific "mode" of operation that changes what the available set of inputs do. This lets us do more things with a limited number of inputs. [^1]
@@ -11,7 +11,7 @@ Having modes adds cognitive overhead, because I have to track which mode I am in
 
 As users of `vim` probably know there is a savior, which is the `Esc` key (unless you remapped it to something else, ironically `Caps Lock` is a nice alternative). If `vim` starts doing something unexpected, I can just mash the `Esc` key a couple times and I know I'm back to Normal mode, and can work with a clean slate, blissfully forgetting how I found myself in this mess. It's a reset.
 
-To reduce the cognitive overhead, it's very useful when a modal UI has a quick way to getting back to some "initial state".[^3] In `vim`  Normal mode is the default. The important bit here is that I can mash  `Esc` to "really make sure" that I'm back to Normal mode. If in Normal mode, hitting `Esc` again does nothing. Pressing `Esc` is _idempotent_. This removes the need for a feedback loop (check the mode -> do a thing), which lets us get _really_ fast with the UI. It also frees the brain to think about the important parts, i.e. the text itself.
+To reduce the cognitive overhead, it's very useful when a modal UI has a quick way to getting back to some "initial state".[^3] In `vim`  Normal mode is the default. The important bit here is that I can mash  `Esc` to "really make sure" that I'm back to Normal mode. If in Normal mode, hitting `Esc` again does nothing. Pressing `Esc` is _idempotent_. This removes the need for a feedback loop (check the mode -> do a thing), which lets us get _really_ fast with the UI. It also frees the mind to think about the important parts, i.e. the text itself.
 
 This is one of the reasons why I always hated `Caps Lock` &mdash; it's a toggle, so pressing it multiple times keeps switching modes and you can never rely on it unless you check what mode you're in.
 
