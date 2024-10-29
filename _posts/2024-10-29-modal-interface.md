@@ -17,6 +17,7 @@ This is one of the reasons why I always hated `Caps Lock` &mdash; it's a toggle,
 
 ---
 &nbsp;  
+
 [^1]: There's other philosophies as well, such as use chording (holding a modifier key and then another key, think `Ctrl+c`) or combos (tapping multiple keys at the same time).
 
 [^2]: I've always wanted to experiment with different physiological or audiovisual anchors. Imagine playing different types of background music based on your vim mode, or an chair-mounted actuator pushing into your back when Caps Lock is turned on.
