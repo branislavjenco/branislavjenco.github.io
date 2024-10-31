@@ -20,6 +20,6 @@ This is one of the reasons why I always hated `Caps Lock` &mdash; it's a toggle,
 
 [^1]: There's other philosophies as well, such as use chording (holding a modifier key and then another key, think `Ctrl+c`) or combos (tapping multiple keys at the same time).
 
-[^2]: I've always wanted to experiment with different physiological or audiovisual anchors. Imagine playing different types of background music based on your vim mode, or an chair-mounted actuator pushing into your back when Caps Lock is turned on.
+[^2]: It would be fun to experiment with different physiological or audiovisual anchors. Imagine playing different types of background music based on your mode in `vim`, or a chair-mounted actuator pushing into your back when `Caps Lock` is turned on.
 
-[^3]:Something similar could be said about any stateful system, like your computer, for example. The reason rebooting tends to help fix problems is that we are going back to some initial state (hopefully), throwing the accumulated cruft and problems away. And rebooting is idempotent as repeating it isn't going to change what initial state you get into (at least in principle).
+[^3]: Something similar could be said about any stateful system, like your computer, for example. The reason rebooting tends to fix problems is that we are going back to some initial state (hopefully), throwing the accumulated cruft and problems away. And rebooting is idempotent as repeating it isn't going to change what initial state you get into (at least in principle).
