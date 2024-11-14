@@ -4,7 +4,7 @@ I'm a generalist software developer that enjoys always learning new things, solv
 
 I currently work mainly with C#/.NET and Python. I enjoy mentoring and I try to challenge myself by speaking at conferences, most recently at [NDC Oslo](https://branislavjenco.github.io/desired-state-systems-youtube.html) in December 2021.
 
-Currently, I work as a senior developer at [4Subsea](https://4subsea.com), helping build a platform empowering engineers to get the right data they need when they need it wi
+Currently, I work as a senior developer at [4Subsea](https://4subsea.com), helping build a platform empowering engineers to get the right data they need.
 
 Previously I worked as a full-stack developer and tech lead at [Sesam](https://sesam.io/), building a master data hub that simplifies the process of making up-to-date master data available in a data platform architecture, and before that, as a full-stack developer at [Nornir](https://nornir.io/) in Oslo, working with IoT. In 2016, I took a summer internship at [CERN](https://home.cern/), where I built a small web application for displaying data about beamlines in CERNs North & East Experimental Areas.
 
