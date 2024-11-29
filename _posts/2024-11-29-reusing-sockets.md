@@ -29,7 +29,7 @@ lets us look at the network related syscalls that the python process is doing as
 5. then we start `poll()`ing it to be notified of incoming connections (this is actually not a network syscall but a file descriptor syscall so it can't be seen with this filter&mdash;remember, a socket is just a file)
 6. If we actually `curl 127.0.0.1:8080` then we see an `accept()` syscall to accept an incoming connection
 
-> Sidenote: On my machine, I also see some other unix sockets being opened (but as a client, not for listening) but I think we can ignore them for our purposes. I think it's `http.server` trying to connect to a [NSCD daemon via a socket for DNS resolution.](https://jameshfisher.com/2018/02/05/dont-use-nscd/) 
+Sidenote: On my machine, I also see some other unix sockets being opened (but as a client, not for listening) but I think we can ignore them for our purposes. I think it's `http.server` trying to connect to a [NSCD daemon via a socket for DNS resolution.](https://jameshfisher.com/2018/02/05/dont-use-nscd/) 
 
 Okay, I see the issue here. `http.server` sets `SO_REUSEADDR` to True, but not `SO_REUSEPORT`? How come, when we found that the source code sets `allow_reuse_port` to `True`?
 
