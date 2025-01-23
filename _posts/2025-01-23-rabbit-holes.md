@@ -13,8 +13,8 @@ When I was spelunking in the rabbit holes of [socket reuse in Linux and Windows]
 
 Occasionally, when the rabbit hole isn't deep, I find the end of it, like when I encountered an [unintuitive behaviour in Python's `requests`](https://blog.br4.no/requests-iter_lines) package. Nothing is left unearthed and it feels good. A worse feeling is when I find that a problem is entirely self-inflicted, like when [forgetting to set up a NodeSelector in a local Kubernetes/kind environment](https://blog.br4.no/kubernetes-scheduling/). But the benefits are still there as I understood more about how Kubernetes works.
 
-But if I learned something interesting today, I'm probably going to forget it a couple of days. That's why I spend a little effort to write notes in my rabbit hole journeys and turn them into blog posts. You might have noticed the links in this post.
+But if I learned something interesting today, I'm probably going to forget it in a couple of days. That's why I spend a little effort to write notes during my rabbit hole journeys and turn them into blog posts. You might have noticed the links in this post.
 
 This doesn't happen every time, but honestly unless I do that, I am most likely going to forget about it. Writing a blog post creates a stronger association in my memory and I can always look it up later. Not to mention the obvious benefit to other programmers who find a blog post helpful in their own spelunking.
 
-I encourage anyone that's reading to go and dive into your rabbit holes head-first. Just know when to stop, and blog about it! It helps you and it helps others.
+I encourage the reader to go and dive into your rabbit holes head-first. Just know when to stop, and blog about it! It helps you and it helps others.
