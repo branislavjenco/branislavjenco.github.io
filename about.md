@@ -4,9 +4,9 @@ title: About me
 permalink: /about
 ---
 
-I'm a generalist software developer that enjoys learning, solving problems and helping others do the same. I like working across the stack, finding common patterns in unrelated areas for a better understanding of systems. I currently work mainly with C#/.NET and Python. I enjoy mentoring and I try to challenge myself by speaking at conferences, most recently at [NDC Oslo](https://branislavjenco.github.io/desired-state-systems-youtube.html) in December 2021.
+Hi! I enjoy solving problems, tackling complexity and helping others do the same. I like working across the stack, finding common patterns in unrelated areas for a better understanding of systems. I currently work mainly with .NET (both C# and F#) and Python. I enjoy mentoring and I try to challenge myself by speaking at conferences, most recently at [NDC Oslo](https://branislavjenco.github.io/desired-state-systems-youtube.html) in December 2021.
 
-I work as a senior developer at [4Subsea](https://4subsea.com), helping build a platform empowering engineers to get the right data they need when they need it.
+I work as a senior developer at [4Subsea](https:d/4subsea.com), helping build a platform empowering engineers to get the right data they need when they need it.
 
 Previously I worked as a full-stack developer and tech lead at [Sesam](https://sesam.io/), building a master data hub that simplifies the process of making up-to-date master data available in a data platform architecture, and before that, as a full-stack developer at [Nornir](https://nornir.io/) in Oslo, working with IoT. In 2016, I took a summer internship at [CERN](https://home.cern/), where I built a small web application for displaying data about beamlines in CERNs North & East Experimental Areas.
 
@@ -14,7 +14,7 @@ I have a masters degree in programming and system architecture from the [Institu
 
 You can find a more formal CV [here](https://branislavjenco.github.io/jenco_cv.pdf), otherwise all the information is on LinkedIn.
 
-This site is where I write about things I've learned, things I find interesting and mistakes I've made.
+This site is a technical blog where I write about things I've learned, things I find interesting and mistakes I've made.
 
 ### Contact me
 
