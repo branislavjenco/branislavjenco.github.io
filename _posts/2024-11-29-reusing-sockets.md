@@ -108,7 +108,7 @@ Well, Linux is strict on socket reuse. Windows, on the other hand, is very lenie
 
 So is Python 3.14 going to change the default behaviour for socket reuse in `http.server`? I think that's uncertain, as funnily enough, people are concerned about the change introduced in June, and there is an ongoing [open issue](https://github.com/python/cpython/issues/127319) about this. 
 
-
+Update: as of June 2025, the changes was [rolled back](https://github.com/python/cpython/pull/135538) in Python 3.14.
 
 
 
